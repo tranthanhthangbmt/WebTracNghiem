@@ -1,0 +1,68 @@
+﻿Slide 1: CHƯƠNG 1 (TIẾT 4) - SÂN CHƠI VÀ LUẬT CHƠI CỦA KINH TẾ SỐ
+Người 1: Chào các bạn sinh viên lớp BA24M. Hôm nay chúng ta đến với Tiết 4 của Chương 1 với chủ đề: "Sân chơi và Luật chơi của Kinh tế số". Các em hãy nhìn lên màn hình Slide 1. Bên trái là những mạch điện tử phức tạp, bên phải là cán cân công lý. Ở giữa là dòng chữ: "Nếu TMĐT là một chiếc xe đua, Công nghệ là động cơ, còn Pháp lý là luật giao thông". Theo em, tại sao thầy lại dùng hình ảnh so sánh này?
+Người 2: Dạ thưa thầy, theo em hiểu thì "xe đua" ám chỉ tốc độ phát triển nhanh của Thương mại điện tử. "Công nghệ là động cơ" nghĩa là công nghệ giúp doanh nghiệp chạy nhanh hơn. Còn "Pháp lý là luật giao thông" chắc là để… tránh bị tai nạn hoặc bị phạt đúng không ạ? 
+Người 1: Rất chính xác! Nhưng sâu xa hơn, thông điệp ở đây là sự cân bằng. Nếu động cơ (Công nghệ) quá mạnh mà không tuân thủ luật giao thông (Pháp lý), chiếc xe doanh nghiệp sẽ lao xuống vực. Ngược lại, nếu quá sợ luật mà không dám đạp ga công nghệ, chúng ta sẽ thua cuộc đua. Môn học này sẽ giúp các em làm chủ cả hai yếu tố đó.
+
+Slide 2: MÔ HÌNH TẢNG BĂNG TRÔI TRONG TMĐT
+Người 1: Chúng ta chuyển sang Slide 2. Đây là hình ảnh một tảng băng trôi. Phần nổi trên mặt nước là "Website bán hàng/Giao diện". Nhưng phần chìm dưới nước lại chiếm khối lượng lớn hơn nhiều. Em thấy những tầng nào nằm bên dưới?
+Người 2: Dạ, em thấy có 3 tầng chìm ạ. Đầu tiên là "Chuỗi cung ứng & Logistics", tiếp theo là "Hạ tầng Công nghệ" - bài học hôm nay, và dưới cùng là "Hành lang Pháp lý & Rủi ro".
+Người 1: Đúng vậy. Câu hỏi đặt ra là: "Điều gì quyết định sự sống còn của doanh nghiệp TMĐT bên dưới giao diện website hào nhoáng?". Câu trả lời chính là phần nền móng này. Nếu thiếu nó, doanh nghiệp số sẽ sụp đổ trước khi kịp tiếp cận khách hàng, giống như tảng băng bị tan chảy từ gốc vậy.
+
+Slide 3: KHUNG CẤU TRÚC TỔNG THỂ (NGÔI ĐỀN TMĐT)
+Người 1: Để hình dung rõ hơn về phần chìm đó, hãy nhìn vào Slide 3. Đây là mô hình "Ngôi đền TMĐT". Em thấy mái nhà là các Ứng dụng B2C, B2B. Nhưng để mái nhà này đứng vững, nó cần những trụ cột nào?
+Người 2: Dạ thưa thầy, em thấy có 5 trụ cột lớn: Con người, Chính sách công (Luật), Marketing, Dịch vụ hỗ trợ và Đối tác kinh doanh ạ.
+Người 1: Chính xác. Và quan trọng nhất, tất cả các trụ cột đó đều phải đứng trên một cái bệ móng vững chắc dưới cùng. Đó chính là "Hạ tầng nền tảng" bao gồm: Phần cứng, Phần mềm và Mạng lưới. Các ứng dụng bán lẻ muốn vận hành trơn tru thì không thể xây lâu đài trên cát, mà phải xây trên cái nền móng công nghệ này.
+
+Slide 4: PHÂN LOẠI MẠNG LƯỚI KẾT NỐI
+Người 1: Nói về "Mạng lưới" trong phần nền móng, chúng ta sang Slide 4. Thầy chia thành 3 loại: Internet, Intranet và Extranet. Dựa vào các hình ảnh ẩn dụ: Công viên, Nhà riêng và CLB Hội viên, em phân biệt chúng như thế nào? 
+Người 2: Dạ, em đoán "Internet - Công viên công cộng" là nơi ai cũng vào được, giống như khách hàng vào mua sắm (B2C). "Intranet - Nhà riêng" chắc là mạng nội bộ chỉ dành cho nhân viên (B2E). Còn "Extranet" là gì ạ?
+Người 1: Extranet được ví là "CLB Hội viên". Nó giống như một mạng riêng nhưng cho phép đối tác bên ngoài vào nếu có thẻ thành viên. Nó thường dùng cho mô hình B2B (Doanh nghiệp với Doanh nghiệp) để kết nối dữ liệu với các đối tác chiến lược qua cổng bảo mật.
+
+Slide 5: CƠ CHẾ VẬN HÀNH (CLIENT - SERVER)
+Người 1: Slide 5 giải thích điều gì xảy ra khi em bấm nút "Mua hàng". Chúng ta có mô hình Client-Server. Em hãy nhìn sơ đồ và thử diễn giải xem dòng chảy thông tin đi như thế nào?.
+Người 2: Dạ, em thấy từ máy tính của mình (Client) sẽ gửi một "Request" (Yêu cầu) đến cái thùng máy lớn kia (Server). Sau đó Server sẽ gửi lại "Response" (Trả kết quả). Nhưng cái chữ TCP/IP ở giữa là gì ạ?
+Người 1: TCP/IP chính là "ngôn ngữ chung" hay giao thức giúp hai máy tính này hiểu được nhau để giao tiếp. Hiểu mô hình này giúp người quản trị biết cách tối ưu hóa trải nghiệm người dùng và xử lý khi hệ thống bị quá tải, ví dụ như khi quá nhiều Client gửi Request cùng lúc trong ngày Flash Sale.
+
+Slide 6: ĐỊNH DANH SỐ (DIGITAL IDENTITY)
+Người 1: Cuối cùng, làm sao Khách hàng tìm thấy "Cửa hàng" của em trên mạng? Slide 6 nói về Định danh số. Em thấy sự khác biệt giữa dãy số 172.217.168.46 và chữ Google.com là gì?.
+Người 2: Dạ, dãy số kia là IP Address, nhìn rất khó nhớ. Còn Google.com là Tên miền (Domain Name), dễ nhớ và dễ nhận diện thương hiệu hơn ạ.
+Người 1: Đúng rồi. Và hệ thống DNS ở giữa đóng vai trò như một "cuốn danh bạ điện thoại", tự động dịch tên miền dễ nhớ sang địa chỉ IP kỹ thuật để máy tính kết nối được. Bài học quản trị ở đây là: Việc chọn và bảo vệ tên miền là chiến lược cực kỳ quan trọng để bảo vệ tài sản thương hiệu số của doanh nghiệp.
+Slide 7: HẠ TẦNG PHÁP LÝ - TẠI SAO CẦN 'LUẬT GIAO THÔNG'?
+Người 1: Chúng ta đã có "động cơ" là Công nghệ, giờ hãy sang Slide 7 để nói về "Luật giao thông". Tại sao trong môi trường ảo mà chúng ta vẫn cần hệ thống luật pháp chặt chẽ như đời thật? Em nhìn thấy 4 chiếc khiên bảo vệ trên màn hình là gì?
+Người 2: Dạ, em thấy có: Sở hữu trí tuệ, Hợp đồng & Chữ ký số, Quyền riêng tư, và Gian lận/Tội phạm mạng ạ . Nhưng thưa thầy, trên mạng thì ai biết ai là ai, luật pháp có thực sự kiểm soát được không ạ?
+Người 1: Đó là một thách thức, nhưng cũng là lý do Hạ tầng pháp lý tồn tại. Mục tiêu cốt lõi của nó không chỉ là phạt, mà là để tạo niềm tin cho khách hàng. Nếu em mua hàng mà sợ bị lừa, sợ lộ thẻ tín dụng, em sẽ không dám bấm nút thanh toán. Pháp lý chính là tấm lưới an toàn để bảo vệ tài sản vô hình và giải quyết tranh chấp khi nó xảy ra.
+
+Slide 8: BẢO VỆ TÀI SẢN TRÍ TUỆ (INTELLECTUAL PROPERTY)
+Người 1: Đi sâu vào tài sản vô hình, mời các em nhìn Slide 8. Chúng ta có 3 khái niệm rất dễ nhầm lẫn: Bản quyền (Copyright), Thương hiệu (Trademark), và Bằng sáng chế (Patent). Dựa vào các biểu tượng C, TM và cái bóng đèn, em phân biệt chúng thế nào?
+Người 2: Dạ, "Thương hiệu" (Trademark) chắc là bảo vệ cái Logo hoặc Tên miền để khách không nhầm lẫn . Còn "Bản quyền" (Copyright) và "Bằng sáng chế" (Patent) thì khác nhau sao ạ?
+Người 1: Rất tốt. Sự khác biệt nằm ở đối tượng bảo vệ:
+• Bản quyền (Copyright - ©): Bảo vệ nội dung sáng tạo như bài viết, hình ảnh, mã code website. Đặc biệt, nó có hiệu lực tự động ngay khi tác phẩm ra đời, không cần đăng ký.
+• Bằng sáng chế (Patent): Bảo vệ một quy trình hoặc công nghệ mới, ví dụ như tính năng "Mới-Click" (1-Click) của Amazon. Cái này bắt buộc phải đăng ký mới được nhà nước bảo hộ.
+
+Slide 9: QUYỀN RIÊNG TƯ & DỮ LIỆU
+Người 1: Tiếp theo là vấn đề nóng nhất hiện nay trên Slide 9: Dữ liệu người dùng. Tại sao thầy lại ghi: "Dữ liệu: Tài sản hay Rủi ro?".
+Người 2: Dạ, là tài sản vì mình dùng lịch sử mua hàng để quảng cáo đúng ý khách ạ. Còn rủi ro là... nếu lỡ làm lộ thông tin thì bị kiện đúng không thầy?
+Người 1: Chính xác. Rủi ro pháp lý lớn nhất là vi phạm quy định chia sẻ dữ liệu (như luật GDPR châu Âu). Hãy nhìn case study của Facebook: Họ từng bị kiện vì tự ý thay đổi quyền riêng tư (chương trình Beacons) mà không báo trước. Vì vậy, "Nguyên tắc vàng" các em phải nhớ là: Opt-in / Opt-out. Tức là phải có sự đồng ý của khách hàng (Opt-in) thì mới được thu thập hay gửi tin nhắn.
+
+Slide 10: BÀI HỌC THỰC TẾ - VỤ KIỆN TIFFANY VS. EBAY
+Người 1: Để xem luật áp dụng thế nào, hãy qua Slide 10. Đây là vụ kiện kinh điển: Hãng trang sức Tiffany kiện sàn eBay vì để hàng giả Tiffany bán tràn lan trên đó . Theo em, ai thắng?
+Người 2: Em nghĩ là Tiffany thắng ạ, vì eBay để hàng giả lộng hành mà.
+Người 1: Bất ngờ là eBay thắng kiện. Tòa án phán quyết rằng eBay chỉ là nền tảng trung gian. Họ thắng nhờ cơ chế "Safe Harbor" (Bến đỗ an toàn) và quy trình "Notice and Takedown" (Thông báo & Gỡ bỏ) . Nghĩa là eBay không chịu trách nhiệm miễn là họ gỡ bỏ hàng giả ngay khi Tiffany thông báo. Đây là lá chắn sinh tử cho các sàn TMĐT như Shopee, Lazada hiện nay.
+
+Slide 11: BÀI TẬP TÌNH HUỐNG - STARTUP 'SO SÁNH GIÁ'
+Người 1: Bây giờ chúng ta làm bài tập tình huống ở Slide 11. Giả sử lớp mình mở một Startup làm App "So sánh giá". Cơ chế là:
+1. Dùng Bot tự động quét giá từ Tiki/Shopee.
+2. Hiển thị lại trên App mình.
+3. Thu thập email người xem để gửi quảng cáo. Câu hỏi thảo luận là: Mô hình công nghệ là gì và Rủi ro pháp lý nằm ở đâu? .
+Người 2: Về công nghệ thì chắc vẫn là Client-Server thôi ạ. Nhưng về pháp lý... em thấy việc vào nhà người khác (Tiki/Shopee) lấy dữ liệu về nhà mình có vẻ sai sai?
+
+Slide 12: PHÂN TÍCH & LỜI GIẢI TÌNH HUỐNG
+Người 1: Em cảm nhận đúng rồi đấy. Hãy xem đáp án chi tiết ở Slide 12. Về Công nghệ: Đúng là mô hình Client-Server, nhưng yêu cầu hạ tầng mạng phải rất ổn định để chạy Bot và kết nối API. Về Rủi ro Pháp lý, có 3 điểm chết người:
+1. Bản quyền: Nếu em copy nguyên xi hình ảnh/mô tả sản phẩm của họ là vi phạm.
+2. Cạnh tranh: Nếu Bot của em quét quá nhiều làm sập web của họ, em sẽ bị kiện tội cạnh tranh không lành mạnh.
+3. Quyền riêng tư: Việc thu thập email để gửi quảng cáo mà khách chưa đồng ý (chưa Opt-in) sẽ bị coi là Spam.
+
+Slide 13: TỔNG KẾT - HÀNH TRANG CHO NHÀ QUẢN TRỊ
+Người 1: Chúng ta kết thúc bài học với Slide 13. Hành trang các em cần mang về hôm nay là gì? Thứ nhất, hiểu mô hình Client-Server để nói chuyện với IT. Thứ hai, phân biệt được Internet, Intranet và Extranet. Thứ ba, bảo vệ thương hiệu bằng tên miền và tuân thủ quyền riêng tư .
+Hãy nhớ câu chốt của bài: "Công nghệ giúp bạn đi nhanh, nhưng Pháp lý giúp bạn đi xa và an toàn". Bài tiếp theo, chúng ta sẽ học về phần chìm tiếp theo của tảng băng: Chuỗi cung ứng & Logistics. Cảm ơn cả lớp!
+
