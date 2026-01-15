@@ -95,6 +95,10 @@ const app = {
     },
 
     backToModules: function () {
+        // Stop video if playing
+        const videoFrame = document.getElementById('video-frame');
+        if (videoFrame) videoFrame.src = ""; // Stop playback
+
         this.resetQuizViewPosition();
         // From Parts view to Module list (Chapter view)
         this.state.currentModule = null;
@@ -122,60 +126,107 @@ const app = {
         this.showView('view-dashboard');
         document.getElementById('dashboard-title').textContent = this.state.currentModule.name;
 
-        // Reset Video if empty or different
-        const videoFrame = document.getElementById('video-frame');
-        // Only reload if src is different to prevent reload on back navigation
-        if (!videoFrame.src.includes(this.state.currentModule.video)) {
-            videoFrame.src = this.state.currentModule.video;
+        // Video is now lazy-loaded in switchTab
+
+
+        // Load Mindmap Image
+        const mindmapDetails = this.getMindmapDetails();
+        const mindmapImg = document.getElementById('mindmap-image');
+        const mindmapPlaceholder = document.getElementById('mindmap-placeholder');
+
+        // Reset state
+        mindmapImg.classList.remove('hidden');
+        mindmapPlaceholder.classList.add('hidden');
+
+        if (mindmapDetails) {
+            mindmapImg.src = `DB/Mindmap/Chuong_${mindmapDetails.chapter}_Tiet_${mindmapDetails.lesson}.png`;
+            mindmapImg.onerror = function () {
+                this.classList.add('hidden');
+                mindmapPlaceholder.classList.remove('hidden');
+            };
+        } else {
+            mindmapImg.classList.add('hidden');
+            mindmapPlaceholder.classList.remove('hidden');
         }
 
-        // Default to video tab
-        this.switchTab('video');
+        // Default to Mindmap tab
+        this.switchTab('mindmap');
+    },
+
+    getMindmapDetails: function () {
+        if (this.state.currentChapter === null || this.state.currentModule === null) return null;
+
+        const chapterNum = this.state.currentChapter + 1;
+        // Try to extract lesson number from name "Tiết X: ..."
+        const match = this.state.currentModule.name.match(/Tiết (\d+)/i);
+        if (match && match[1]) {
+            return { chapter: chapterNum, lesson: match[1] };
+        }
+        return null;
     },
 
     switchTab: function (tabName) {
+        const tabMindmap = document.getElementById('tab-mindmap');
         const tabVideo = document.getElementById('tab-video');
         const tabPractice = document.getElementById('tab-practice');
+
+        const contentMindmap = document.getElementById('content-mindmap');
         const contentVideo = document.getElementById('content-video');
         const contentPractice = document.getElementById('content-practice');
 
-        if (tabName === 'video') {
+        // Reset all tabs
+        [tabMindmap, tabVideo, tabPractice].forEach(tab => {
+            tab.classList.remove('bg-white', 'text-primary', 'shadow-sm');
+            tab.classList.add('text-gray-600', 'hover:text-gray-900');
+        });
+
+        // Hide all contents
+        [contentMindmap, contentVideo, contentPractice].forEach(content => {
+            content.classList.add('hidden');
+        });
+
+        if (tabName === 'mindmap') {
+            tabMindmap.classList.add('bg-white', 'text-primary', 'shadow-sm');
+            tabMindmap.classList.remove('text-gray-600', 'hover:text-gray-900');
+            contentMindmap.classList.remove('hidden');
+
+            this.pauseVideo();
+        } else if (tabName === 'video') {
             tabVideo.classList.add('bg-white', 'text-primary', 'shadow-sm');
             tabVideo.classList.remove('text-gray-600', 'hover:text-gray-900');
-
-            tabPractice.classList.remove('bg-white', 'text-primary', 'shadow-sm');
-            tabPractice.classList.add('text-gray-600', 'hover:text-gray-900');
-
             contentVideo.classList.remove('hidden');
-            contentPractice.classList.add('hidden');
+
+            // Lazy load video
+            const videoFrame = document.getElementById('video-frame');
+            if (this.state.currentModule.video && !videoFrame.src.includes(this.state.currentModule.video)) {
+                videoFrame.src = this.state.currentModule.video;
+            }
         } else {
             tabPractice.classList.add('bg-white', 'text-primary', 'shadow-sm');
             tabPractice.classList.remove('text-gray-600', 'hover:text-gray-900');
-
-            tabVideo.classList.remove('bg-white', 'text-primary', 'shadow-sm');
-            tabVideo.classList.add('text-gray-600', 'hover:text-gray-900');
-
-            contentVideo.classList.add('hidden');
             contentPractice.classList.remove('hidden');
 
-            // Pause video/audio in the iframe
-            const videoFrame = document.getElementById('video-frame');
-            try {
-                if (videoFrame && videoFrame.contentWindow) {
-                    const iframeDoc = videoFrame.contentWindow.document;
-                    const vid = iframeDoc.getElementById('video-element');
-                    const aud = iframeDoc.getElementById('slide-audio');
-                    if (vid && !vid.paused) vid.pause();
-                    if (aud && !aud.paused) aud.pause();
-                }
-            } catch (e) {
-                console.log("Cannot pause video iframe:", e);
-            }
+            this.pauseVideo();
 
             // Auto-start quiz if not active
             if (!this.state.currentPart && this.state.parts.length > 0) {
                 this.startPracticeFromDashboard();
             }
+        }
+    },
+
+    pauseVideo: function () {
+        const videoFrame = document.getElementById('video-frame');
+        try {
+            if (videoFrame && videoFrame.contentWindow) {
+                const iframeDoc = videoFrame.contentWindow.document;
+                const vid = iframeDoc.getElementById('video-element');
+                const aud = iframeDoc.getElementById('slide-audio');
+                if (vid && !vid.paused) vid.pause();
+                if (aud && !aud.paused) aud.pause();
+            }
+        } catch (e) {
+            console.log("Cannot pause video iframe:", e);
         }
     },
 
@@ -702,6 +753,30 @@ const app = {
             this.state.currentQuestionIndex--;
             this.renderQuestion();
         }
+    },
+
+    // --- Mindmap Modal Logic ---
+
+    openMindmapModal: function () {
+        const mindmapImg = document.getElementById('mindmap-image');
+        const modal = document.getElementById('mindmap-modal');
+        const modalImg = document.getElementById('mindmap-modal-img');
+
+        if (mindmapImg && mindmapImg.src && !mindmapImg.classList.contains('hidden')) {
+            modalImg.src = mindmapImg.src;
+            modal.classList.remove('hidden');
+        }
+    },
+
+    closeMindmapModal: function () {
+        const modal = document.getElementById('mindmap-modal');
+        modal.classList.add('hidden');
+        // Clear src to save memory/stop any loading
+        setTimeout(() => {
+            if (modal.classList.contains('hidden')) {
+                document.getElementById('mindmap-modal-img').src = "";
+            }
+        }, 300);
     }
 };
 

@@ -128,7 +128,7 @@
             <!-- Header for Dashboard (Back button & Title) -->
             <div class="bg-white shadow p-3 md:p-4 flex flex-col md:flex-row items-center justify-between z-10 gap-3">
                 <div class="flex items-center w-full md:w-auto">
-                    <button onclick="app.goHome()" class="mr-4 text-gray-500 hover:text-primary">
+                    <button onclick="app.backToModules()" class="mr-4 text-gray-500 hover:text-primary">
                         <i class="fa-solid fa-arrow-left text-xl"></i>
                     </button>
                     <h2 class="text-lg md:text-xl font-bold text-gray-900 truncate" id="dashboard-title">Module Name
@@ -136,8 +136,12 @@
                 </div>
                 <!-- Tabs -->
                 <div class="flex space-x-1 md:space-x-2 bg-gray-100 p-1 rounded-lg w-full md:w-auto">
-                    <button onclick="app.switchTab('video')" id="tab-video"
+                    <button onclick="app.switchTab('mindmap')" id="tab-mindmap"
                         class="flex-1 md:flex-none px-4 py-2 rounded-md text-sm font-semibold transition-colors bg-white text-primary shadow-sm">
+                        <i class="fa-solid fa-sitemap mr-2"></i> Sơ đồ tư duy
+                    </button>
+                    <button onclick="app.switchTab('video')" id="tab-video"
+                        class="flex-1 md:flex-none px-4 py-2 rounded-md text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors">
                         <i class="fa-solid fa-play-circle mr-2"></i> Bài Giảng
                     </button>
                     <button onclick="app.switchTab('practice')" id="tab-practice"
@@ -149,8 +153,18 @@
 
             <!-- Content Area -->
             <div class="flex-grow relative bg-black">
+                <!-- Mindmap Tab -->
+                <div id="content-mindmap"
+                    class="absolute inset-0 w-full h-full bg-gray-50 overflow-auto flex justify-center items-center">
+                    <img id="mindmap-image" src="" alt="Sơ đồ tư duy"
+                        class="max-w-full max-h-full object-contain p-2 cursor-zoom-in hover:opacity-95 transition-opacity"
+                        onclick="app.openMindmapModal()">
+                    <div id="mindmap-placeholder" class="hidden text-gray-500 text-lg">Chưa có sơ đồ tư duy cho tiết này
+                    </div>
+                </div>
+
                 <!-- Video Tab -->
-                <div id="content-video" class="absolute inset-0 w-full h-full">
+                <div id="content-video" class="absolute inset-0 w-full h-full hidden">
                     <iframe id="video-frame" src="" class="w-full h-full border-0" allowfullscreen></iframe>
                 </div>
 
@@ -268,6 +282,17 @@
             <p>&copy; 2025 Quiz Master. Designed for Students.</p>
         </div>
     </footer>
+
+    <!-- Mindmap Fullscreen Modal -->
+    <div id="mindmap-modal"
+        class="hidden fixed inset-0 z-[60] bg-black bg-opacity-90 flex justify-center items-center p-4 fade-in"
+        onclick="app.closeMindmapModal()">
+        <button class="absolute top-4 right-4 text-white hover:text-gray-300 z-50 focus:outline-none">
+            <i class="fa-solid fa-xmark text-4xl"></i>
+        </button>
+        <img id="mindmap-modal-img" src="" class="max-w-full max-h-full object-contain rounded-md shadow-2xl"
+            alt="Full Mindmap">
+    </div>
 
     <script src="script.js"></script>
 </body>
