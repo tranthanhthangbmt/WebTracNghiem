@@ -47,6 +47,22 @@ const app = {
         userResults: {}
     },
 
+    // Map of Chapter_Lesson to PDF filename
+    slideMap: {
+        "1_1": "Chuong_1_Tiet_01_Khái niệm, đặc điểm TMĐT.pdf",
+        "1_2": "Chuong_1_Tiet_02_Sự khác biệt và các cấp độ số hóa doanh nghiệp.pdf",
+        "1_3": "Chuong_1_Tiet_03_Lợi thế chiến lược và chìa khóa thành công.pdf",
+        "1_4": "Chuong_1_Tiet_04_E-commerce_Tech_Law_Foundation.pdf",
+        "1_5": "Chuong_1_Tiet_05_Thanh_toán_điện_tử_và_An_toàn_thương_mại.pdf",
+        "1_6": "Chuong_1_Tiet_06_E-commerce_Logistics_The_Iceberg_Beneath_The_Click.pdf",
+        "1_7": "Chuong_1_Tiet_07_B2C_and_B2B_Core_E-commerce_Models.pdf",
+        "1_8": "Chuong_1_Tiet_08_Sức_mạnh_cá_nhân_C2C_và_C2B.pdf",
+        "1_9": "Chuong_1_Tiet_09_TMĐT_Chiến_lược_Chuyển_dịch_Giá_trị.pdf",
+        "1_10": "Chuong_1_Tiet_10_Thương_mại_điện_tử_và_Sàn_giao_dịch.pdf",
+        "1_11": "Chuong_1_Tiet_11_E-commerce_Transaction_Mechanisms.pdf",
+        "1_12": "Chuong_1_Tiet_12_E-commerce_Chiến_Lược_Thực_Chiến.pdf"
+    },
+
     init: function () {
         this.renderSelectionScreen();
         this.setupEventListeners();
@@ -69,6 +85,29 @@ const app = {
         });
         const view = document.getElementById(viewId);
         view.classList.remove('hidden');
+
+        // Toggle Main Header and Adjust Height
+        const mainHeader = document.querySelector('header');
+        const dashboardView = document.getElementById('view-dashboard');
+
+        if (viewId === 'view-dashboard') {
+            mainHeader.classList.add('hidden');
+            // Adjust dashboard to be full screen
+            dashboardView.classList.remove('h-[calc(100vh-80px)]');
+            dashboardView.classList.add('h-screen');
+            // Remove margin tweaks as we are now top of screen
+            // But we might need them if padding exists on main. 
+            // The main has py-8. -mt-8 cancels it. 
+            // If header is gone, we still need to cancel main's padding effectively or let it be.
+            // Let's keep existing margin classes for now, just fix height.
+        } else {
+            mainHeader.classList.remove('hidden');
+            if (dashboardView) {
+                dashboardView.classList.add('h-[calc(100vh-80px)]');
+                dashboardView.classList.remove('h-screen');
+            }
+        }
+
         // Trigger reflow to restart animation
         void view.offsetWidth;
         view.classList.add('fade-in');
@@ -167,21 +206,23 @@ const app = {
 
     switchTab: function (tabName) {
         const tabMindmap = document.getElementById('tab-mindmap');
+        const tabSlide = document.getElementById('tab-slide');
         const tabVideo = document.getElementById('tab-video');
         const tabPractice = document.getElementById('tab-practice');
 
         const contentMindmap = document.getElementById('content-mindmap');
+        const contentSlide = document.getElementById('content-slide');
         const contentVideo = document.getElementById('content-video');
         const contentPractice = document.getElementById('content-practice');
 
         // Reset all tabs
-        [tabMindmap, tabVideo, tabPractice].forEach(tab => {
+        [tabMindmap, tabSlide, tabVideo, tabPractice].forEach(tab => {
             tab.classList.remove('bg-white', 'text-primary', 'shadow-sm');
             tab.classList.add('text-gray-600', 'hover:text-gray-900');
         });
 
         // Hide all contents
-        [contentMindmap, contentVideo, contentPractice].forEach(content => {
+        [contentMindmap, contentSlide, contentVideo, contentPractice].forEach(content => {
             content.classList.add('hidden');
         });
 
@@ -191,6 +232,32 @@ const app = {
             contentMindmap.classList.remove('hidden');
 
             this.pauseVideo();
+        } else if (tabName === 'slide') {
+            tabSlide.classList.add('bg-white', 'text-primary', 'shadow-sm');
+            tabSlide.classList.remove('text-gray-600', 'hover:text-gray-900');
+            contentSlide.classList.remove('hidden');
+
+            this.pauseVideo();
+
+            // Lazy load slide
+            const slideFrame = document.getElementById('slide-frame');
+            const details = this.getMindmapDetails(); // Reuse this function as it extracts chapter/lesson
+            if (details) {
+                // Use the map to find the filename
+                const key = `${details.chapter}_${details.lesson}`;
+                const filename = this.slideMap[key];
+
+                if (filename) {
+                    // Encode spaces and special chars in URL
+                    const pdfPath = `DB/Slide/${encodeURIComponent(filename)}`;
+                    // Avoid reloading if already set
+                    if (!slideFrame.src.includes(encodeURIComponent(filename))) {
+                        slideFrame.src = pdfPath;
+                    }
+                } else {
+                    console.warn(`No slide found for ${key}`);
+                }
+            }
         } else if (tabName === 'video') {
             tabVideo.classList.add('bg-white', 'text-primary', 'shadow-sm');
             tabVideo.classList.remove('text-gray-600', 'hover:text-gray-900');
@@ -212,6 +279,24 @@ const app = {
             if (!this.state.currentPart && this.state.parts.length > 0) {
                 this.startPracticeFromDashboard();
             }
+        }
+    },
+
+    openSlideFullscreen: function () {
+        const slideFrame = document.getElementById('slide-frame');
+        if (slideFrame.requestFullscreen) {
+            slideFrame.requestFullscreen();
+        } else if (slideFrame.webkitRequestFullscreen) { /* Safari */
+            slideFrame.webkitRequestFullscreen();
+        } else if (slideFrame.msRequestFullscreen) { /* IE11 */
+            slideFrame.msRequestFullscreen();
+        }
+
+        // Handling orientation for mobile
+        if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock('landscape').catch(err => {
+                console.log("Orientation lock failed: ", err);
+            });
         }
     },
 

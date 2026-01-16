@@ -126,7 +126,8 @@
         <div id="view-dashboard"
             class="view-section hidden fade-in h-[calc(100vh-80px)] -mt-8 -mx-4 pb-0 flex flex-col">
             <!-- Header for Dashboard (Back button & Title) -->
-            <div class="bg-white shadow p-3 md:p-4 flex flex-col md:flex-row items-center justify-between z-10 gap-3">
+            <div
+                class="bg-white shadow p-3 md:p-4 flex flex-col md:flex-row items-center justify-between z-10 gap-3 sticky top-0">
                 <div class="flex items-center w-full md:w-auto">
                     <button onclick="app.backToModules()" class="mr-4 text-gray-500 hover:text-primary">
                         <i class="fa-solid fa-arrow-left text-xl"></i>
@@ -139,6 +140,10 @@
                     <button onclick="app.switchTab('mindmap')" id="tab-mindmap"
                         class="flex-1 md:flex-none px-4 py-2 rounded-md text-sm font-semibold transition-colors bg-white text-primary shadow-sm">
                         <i class="fa-solid fa-sitemap mr-2"></i> Sơ đồ tư duy
+                    </button>
+                    <button onclick="app.switchTab('slide')" id="tab-slide"
+                        class="flex-1 md:flex-none px-4 py-2 rounded-md text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors">
+                        <i class="fa-solid fa-file-pdf mr-2"></i> Slide Bài Giảng
                     </button>
                     <button onclick="app.switchTab('video')" id="tab-video"
                         class="flex-1 md:flex-none px-4 py-2 rounded-md text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors">
@@ -160,6 +165,17 @@
                         class="max-w-full max-h-full object-contain p-2 cursor-zoom-in hover:opacity-95 transition-opacity"
                         onclick="app.openMindmapModal()">
                     <div id="mindmap-placeholder" class="hidden text-gray-500 text-lg">Chưa có sơ đồ tư duy cho tiết này
+                    </div>
+                </div>
+
+                <!-- Slide Tab -->
+                <div id="content-slide" class="absolute inset-0 w-full h-full bg-gray-100 hidden flex flex-col">
+                    <iframe id="slide-frame" src="" class="flex-grow w-full h-full border-0"></iframe>
+                    <div class="bg-white p-2 flex justify-end items-center border-t shadow-sm">
+                        <button onclick="app.openSlideFullscreen()"
+                            class="text-gray-600 hover:text-primary font-medium px-3 py-1 bg-gray-100 rounded hover:bg-gray-200 transition-colors">
+                            <i class="fa-solid fa-expand mr-1"></i> Toàn màn hình
+                        </button>
                     </div>
                 </div>
 
