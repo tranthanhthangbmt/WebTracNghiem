@@ -392,9 +392,6 @@
         <button id="next-btn" title="Slide tiếp theo">⏩</button>
         <button id="autoscroll-btn" title="Bật/Tắt Tự cuộn">🔄</button>
         <button id="scale-btn" title="Chế độ xem">⛶</button>
-        <a href="slide.pdf" download style="text-decoration: none;" target="_blank">
-          <button id="download-btn" title="Tải Slide PDF">📥</button>
-        </a>
         <button id="fullscreen-btn" title="Toàn màn hình">🖼️</button>
       </div>
     </div>
@@ -421,7 +418,7 @@
 
   <script>
     /* ===================== CẤU HÌNH ===================== */
-    const TOTAL_SLIDES = 18;
+    const TOTAL_SLIDES = 15;
     const IMAGE_PREFIX = 'images/slide-';
     const AUDIO_PREFIX = 'audio/slide_';
     const IMG_EXT = '.png';
@@ -603,15 +600,7 @@
     }
 
     /* ================= VIDEO LOGIC ================= */
-    const FALLBACK_VIDEO_DATA = `Slide 6: 
-Winning the Zero Moment of Truth - Changing the Rulebook_vi
-https://mymedia.donga.edu.vn/f/2A__Winning_the_Zero_Moment_of_Truth_-_Changing_the_Rulebook_vi_1767723471.mp4
-Duration: 2:05
-
-Slide 14:
-Omni-Channel vs. Multi-Channel
-https://mymedia.donga.edu.vn/f/Omni-Channel_vs__Multi-Channel_vi_1767723485.mp4
-Duration: 1:49`;
+    const FALLBACK_VIDEO_DATA = ``;
 
     function parseVideoData(text) {
       const lines = text.split('\n');

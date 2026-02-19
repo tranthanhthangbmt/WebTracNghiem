@@ -47,21 +47,6 @@ const app = {
         userResults: {}
     },
 
-    // Map of Chapter_Lesson to PDF filename
-    slideMap: {
-        "1_1": "Chuong_1_Tiet_01_Khái niệm, đặc điểm TMĐT.pdf",
-        "1_2": "Chuong_1_Tiet_02_Sự khác biệt và các cấp độ số hóa doanh nghiệp.pdf",
-        "1_3": "Chuong_1_Tiet_03_Lợi thế chiến lược và chìa khóa thành công.pdf",
-        "1_4": "Chuong_1_Tiet_04_E-commerce_Tech_Law_Foundation.pdf",
-        "1_5": "Chuong_1_Tiet_05_Thanh_toán_điện_tử_và_An_toàn_thương_mại.pdf",
-        "1_6": "Chuong_1_Tiet_06_E-commerce_Logistics_The_Iceberg_Beneath_The_Click.pdf",
-        "1_7": "Chuong_1_Tiet_07_B2C_and_B2B_Core_E-commerce_Models.pdf",
-        "1_8": "Chuong_1_Tiet_08_Sức_mạnh_cá_nhân_C2C_và_C2B.pdf",
-        "1_9": "Chuong_1_Tiet_09_TMĐT_Chiến_lược_Chuyển_dịch_Giá_trị.pdf",
-        "1_10": "Chuong_1_Tiet_10_Thương_mại_điện_tử_và_Sàn_giao_dịch.pdf",
-        "1_11": "Chuong_1_Tiet_11_E-commerce_Transaction_Mechanisms.pdf",
-        "1_12": "Chuong_1_Tiet_12_E-commerce_Chiến_Lược_Thực_Chiến.pdf"
-    },
 
     init: function () {
         this.renderSelectionScreen();
@@ -95,11 +80,6 @@ const app = {
             // Adjust dashboard to be full screen
             dashboardView.classList.remove('h-[calc(100vh-80px)]');
             dashboardView.classList.add('h-screen');
-            // Remove margin tweaks as we are now top of screen
-            // But we might need them if padding exists on main. 
-            // The main has py-8. -mt-8 cancels it. 
-            // If header is gone, we still need to cancel main's padding effectively or let it be.
-            // Let's keep existing margin classes for now, just fix height.
         } else {
             mainHeader.classList.remove('hidden');
             if (dashboardView) {
@@ -164,9 +144,6 @@ const app = {
     showDashboard: function () {
         this.showView('view-dashboard');
         document.getElementById('dashboard-title').textContent = this.state.currentModule.name;
-
-        // Video is now lazy-loaded in switchTab
-
 
         // Load Mindmap Image
         const mindmapDetails = this.getMindmapDetails();
@@ -239,23 +216,15 @@ const app = {
 
             this.pauseVideo();
 
-            // Lazy load slide
+            // Lazy load slide - UPDATED ALGORITHM
             const slideFrame = document.getElementById('slide-frame');
-            const details = this.getMindmapDetails(); // Reuse this function as it extracts chapter/lesson
+            const details = this.getMindmapDetails();
             if (details) {
-                // Use the map to find the filename
-                const key = `${details.chapter}_${details.lesson}`;
-                const filename = this.slideMap[key];
+                // Construct path algorithmically: Video/Chuong_X_Tiet_Y/slide.pdf
+                const pdfPath = `Video/Chuong_${details.chapter}_Tiet_${details.lesson}/slide.pdf`;
 
-                if (filename) {
-                    // Encode spaces and special chars in URL
-                    const pdfPath = `DB/Slide/${encodeURIComponent(filename)}`;
-                    // Avoid reloading if already set
-                    if (!slideFrame.src.includes(encodeURIComponent(filename))) {
-                        slideFrame.src = pdfPath;
-                    }
-                } else {
-                    console.warn(`No slide found for ${key}`);
+                if (!slideFrame.src.includes(pdfPath)) {
+                    slideFrame.src = pdfPath;
                 }
             }
         } else if (tabName === 'video') {
