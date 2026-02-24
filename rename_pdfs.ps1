@@ -1,0 +1,6 @@
+Rename-Item -Path "d:\MY_CODE\GIFT_to_QTI\WebTracNghiem\Video\Chuong_2_Tiet_1\Phần 1_E-Contract_Essentials.pdf" -NewName "slide.pdf"
+Rename-Item -Path "d:\MY_CODE\GIFT_to_QTI\WebTracNghiem\Video\Chuong_2_Tiet_2\Phần 2_Electronic_Contract_Essentials.pdf" -NewName "slide.pdf"
+Rename-Item -Path "d:\MY_CODE\GIFT_to_QTI\WebTracNghiem\Video\Chuong_2_Tiet_3\Phần 2_Electronic_Contract_Essentials (1).pdf" -NewName "slide.pdf"
+Rename-Item -Path "d:\MY_CODE\GIFT_to_QTI\WebTracNghiem\Video\Chuong_2_Tiet_4\Phần 4_Electronic_Payment_Fundamentals.pdf" -NewName "slide.pdf"
+Rename-Item -Path "d:\MY_CODE\GIFT_to_QTI\WebTracNghiem\Video\Chuong_2_Tiet_5\Phần 5_Digital_Payment_Strategies.pdf" -NewName "slide.pdf"
+Rename-Item -Path "d:\MY_CODE\GIFT_to_QTI\WebTracNghiem\Video\Chuong_2_Tiet_6\Phần 6_Digital_Signatures_and_Authentication.pdf" -NewName "slide.pdf"
