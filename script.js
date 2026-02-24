@@ -21,12 +21,12 @@ const app = {
             {
                 name: "CHƯƠNG II: GIAO DỊCH ĐIỆN TỬ",
                 modules: [
-                    { name: "Tiết 1: Khái quát về Hợp đồng điện tử", file: "DB/MD1.csv?v=3", video: "Video/Chuong_2_Tiet_1/index.html", slide: "Video/Chuong_2_Tiet_1/Phần 1_E-Contract_Essentials.pdf" },
-                    { name: "Tiết 2: Giao kết và Quy trình hợp đồng điện tử", file: "DB/Chuong_2_Tiet_2_30_cau.csv?v=2", video: "Video/Chuong_2_Tiet_2/index.html", slide: "Video/Chuong_2_Tiet_2/Phần 2_Electronic_Contract_Essentials.pdf" },
-                    { name: "Tiết 3: Nền tảng Thanh toán điện tử", file: "DB/MD3.csv?v=3", video: "Video/Chuong_2_Tiet_3/index.html", slide: "Video/Chuong_2_Tiet_3/Phần 2_Electronic_Contract_Essentials (1).pdf" },
-                    { name: "Tiết 4: Chiến lược và Công cụ Thanh toán Điện tử", file: "DB/MD4.csv?v=3", video: "Video/Chuong_2_Tiet_4/index.html", slide: "Video/Chuong_2_Tiet_4/Phần 4_Electronic_Payment_Fundamentals.pdf" },
-                    { name: "Tiết 5: Chữ ký số và Chứng thực điện tử", file: "DB/MD5.csv?v=3", video: "Video/Chuong_2_Tiet_5/index.html", slide: "Video/Chuong_2_Tiet_5/Phần 5_Digital_Payment_Strategies.pdf" },
-                    { name: "Tiết 6: Thực hành Case Study", file: "DB/MD6.csv?v=3", video: "Video/Chuong_2_Tiet_6/index.html", slide: "Video/Chuong_2_Tiet_6/Phần 6_Digital_Signatures_and_Authentication.pdf" }
+                    { name: "Tiết 1: Khái quát về Hợp đồng điện tử", file: "DB/MD1.csv?v=6", video: "Video/Chuong_2_Tiet_1/index.html", slide: "Video/Chuong_2_Tiet_1/Phần 1_E-Contract_Essentials.pdf" },
+                    { name: "Tiết 2: Giao kết và Quy trình hợp đồng điện tử", file: "DB/Chuong_2_Tiet_2_30_cau.csv?v=5", video: "Video/Chuong_2_Tiet_2/index.html", slide: "Video/Chuong_2_Tiet_2/Phần 2_Electronic_Contract_Essentials.pdf" },
+                    { name: "Tiết 3: Nền tảng Thanh toán điện tử", file: "DB/Chuong_2_Tiet_3.csv?v=1", video: "Video/Chuong_2_Tiet_3/index.html", slide: "Video/Chuong_2_Tiet_3/Phần 2_Electronic_Contract_Essentials (1).pdf" },
+                    { name: "Tiết 4: Chiến lược và Công cụ Thanh toán Điện tử", file: "DB/Chuong_2_Tiet_4.csv?v=1", video: "Video/Chuong_2_Tiet_4/index.html", slide: "Video/Chuong_2_Tiet_4/Phần 4_Electronic_Payment_Fundamentals.pdf" },
+                    { name: "Tiết 5: Chữ ký số và Chứng thực điện tử", file: "DB/Chuong_2_Tiet_5.csv?v=1", video: "Video/Chuong_2_Tiet_5/index.html", slide: "Video/Chuong_2_Tiet_5/Phần 5_Digital_Payment_Strategies.pdf" },
+                    { name: "Tiết 6: Thực hành Case Study", file: "DB/Chuong_2_Tiet_6.csv?v=1", video: "Video/Chuong_2_Tiet_6/index.html", slide: "Video/Chuong_2_Tiet_6/Phần 6_Digital_Signatures_and_Authentication.pdf" }
                 ]
             },
             {

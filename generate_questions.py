@@ -244,7 +244,7 @@ questions = [
     }
 ]
 
-headers = ["ID", "CourseContentId", "IdContent", "QuestionType", "QuestionContent", "AAnsver", "BAnswer", "CAnswer", "DAnswer", "Answer", "ResultAnswer"]
+headers = ["ID", "CourseContentId", "IdContent", "QuestionType", "QuestionContent", "AAnsver", "BAnswer", "CAnswer", "DAnswer", "Answer", "ResultAnswer", "Explanation"]
 
 output_file = r'd:\MY_CODE\GIFT_to_QTI\WebTracNghiem\DB\Chuong_2_Tiet_2_30_cau.csv'
 
@@ -273,6 +273,7 @@ with open(output_file, 'w', encoding='utf-8-sig', newline='') as f:
             "CAnswer": q["CAnswer"],
             "DAnswer": q["DAnswer"],
             "Answer": q["Answer"],
-            "ResultAnswer": ans_val
+            "ResultAnswer": ans_val,
+            "Explanation": f"Đáp án chính xác là: {ans_val}. Vui lòng ôn tập lại nội dung Tiết học này để nắm vững kiến thức."
         })
 print(f"Successfully generated 30 questions at {output_file}")
